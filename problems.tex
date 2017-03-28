@@ -122,17 +122,23 @@ Add some information about the following relationships:
 \begin{solution}
   \begin{minted}{cypher}
 MATCH
-  (a:User {Name: "Jack"})-[r:FOLLOWS_TWITTER]->(b:User {Name: "Jerry"})
+  (a:User {Name: "Jack"})
+  -[r:FOLLOWS_TWITTER]->
+  (b:User {Name: "Jerry"})
 SET
   r.started = "June 2012";
 	
 MATCH
-  (a:User {Name: "Jack"})-[r:FOLLOWS_TWITTER]->(b:User {Name: "John"})
+  (a:User {Name: "Jack"})
+  -[r:FOLLOWS_TWITTER]->
+  (b:User {Name: "John"})
 SET
   r.started = "February 2016";
 	
 MATCH
-  (a:User {Name: "John"})-[r:FOLLOWS_TWITTER]->(b:User {Name: "Jerry"})
+  (a:User {Name: "John"})
+  -[r:FOLLOWS_TWITTER]->
+  (b:User {Name: "Jerry"})
 SET
   r.started = "January 2016";
   \end{minted}
